@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
@@ -17,27 +18,31 @@ namespace LinkToolbar.Controllers
     public class AccountController : Controller
     {
         //
-        // POST: /Account/JsonLogin
+        // GET: /Account/Login
 
         [AllowAnonymous]
-        [HttpPost]
-        public JsonResult JsonLogin(LoginModel model, string returnUrl)
+        public ActionResult Login(string returnUrl)
         {
-            if (ModelState.IsValid)
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+        //
+        // POST: /Account/Login
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginModel model, string returnUrl)
+        {
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
-                {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    return Json(new { success = true, redirect = returnUrl });
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
+                return RedirectToLocal(returnUrl);
             }
 
-            // If we got this far, something failed
-            return Json(new { errors = GetErrorsFromModelState() });
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            return View(model);
         }
 
         //
@@ -53,11 +58,21 @@ namespace LinkToolbar.Controllers
         }
 
         //
-        // POST: /Account/JsonRegister
+        // GET: /Account/Register
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult JsonRegister(RegisterModel model, string returnUrl)
+        public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -66,11 +81,7 @@ namespace LinkToolbar.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-
-                    InitiateDatabaseForNewUser(model.UserName);
-
-                    FormsAuthentication.SetAuthCookie(model.UserName, createPersistentCookie: false);
-                    return Json(new { success = true, redirect = returnUrl });
+                    return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -78,27 +89,8 @@ namespace LinkToolbar.Controllers
                 }
             }
 
-            // If we got this far, something failed
-            return Json(new { errors = GetErrorsFromModelState() });
-        }
-
-        /// <summary>
-        /// Initiate a new todo list for new user
-        /// </summary>
-        /// <param name="userName"></param>
-        private static void InitiateDatabaseForNewUser(string userName)
-        {
-            TodoItemContext db = new TodoItemContext();
-            TodoList todoList = new TodoList();
-            todoList.UserId = userName;
-            todoList.Title = "My Todo List #1";
-            todoList.Todos = new List<TodoItem>();
-            db.TodoLists.Add(todoList);
-            db.SaveChanges();
-
-            todoList.Todos.Add(new TodoItem() { Title = "Todo item #1", TodoListId = todoList.TodoListId, IsDone = false });
-            todoList.Todos.Add(new TodoItem() { Title = "Todo item #2", TodoListId = todoList.TodoListId, IsDone = false });
-            db.SaveChanges();
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
 
         //
@@ -197,9 +189,9 @@ namespace LinkToolbar.Controllers
                         WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        ModelState.AddModelError("", e);
+                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
                     }
                 }
             }
@@ -280,8 +272,6 @@ namespace LinkToolbar.Controllers
                         // Insert name into the profile table
                         db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
                         db.SaveChanges();
-
-                        InitiateDatabaseForNewUser(model.UserName);
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
                         OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
@@ -373,11 +363,6 @@ namespace LinkToolbar.Controllers
             {
                 OAuthWebSecurity.RequestAuthentication(Provider, ReturnUrl);
             }
-        }
-
-        private IEnumerable<string> GetErrorsFromModelState()
-        {
-            return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));
         }
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
