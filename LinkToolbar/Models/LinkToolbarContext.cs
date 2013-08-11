@@ -13,11 +13,11 @@ namespace LinkToolbar.Models
         // 
         //System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<LinkToolbar.Models.LinkToolbarContext>());
 
-        public LinkToolbarContext() : base("DefaultConnection")
+        public LinkToolbarContext()
+            : base()
         {
         }
 
         public DbSet<Link> Links { get; set; }
-        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

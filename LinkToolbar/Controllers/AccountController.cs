@@ -5,6 +5,7 @@ using System.Transactions;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using LinkToolbar.Filters;
 using LinkToolbar.Models;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
@@ -12,6 +13,7 @@ using WebMatrix.WebData;
 namespace LinkToolbar.Controllers
 {
     [Authorize]
+    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
@@ -266,7 +268,7 @@ namespace LinkToolbar.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (var db = new LinkToolbarContext())
+                using (var db = new UsersContext())
                 {
                     UserProfile user =
                         db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
