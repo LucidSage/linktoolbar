@@ -14,7 +14,6 @@
             }
             return l;
         });
-        console.log(map.slice);
         return map;
     };
 
