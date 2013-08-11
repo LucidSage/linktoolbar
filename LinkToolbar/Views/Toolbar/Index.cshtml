@@ -1,17 +1,6 @@
 ﻿@using LinkToolbar.Models
 @model ToolbarViewModel
 
-@helper BuildTarget(Link link){
-    if (LinkTarget.Current == link.Target)
-    {
-        <text>theFrame</text>
-    }
-    else
-    {
-        <text>_blank</text>
-    }
-}
-
 @{
     Layout = null;
 }
@@ -94,7 +83,6 @@
                     document.getElementById('theFrame').src = newSource;
                 }
             });
-
         </script> 
     </body>
 </html>
