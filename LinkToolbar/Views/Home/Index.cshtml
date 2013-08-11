@@ -1,7 +1,29 @@
 ﻿
 <div id="menu"></div>
 
-<div>
-    <div id="tree"></div>
-    <div id="editor"></div>
+<div id="editor">
+    <form>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" class="k-textbox" placeholder="Name" name="name" required />
+        </div>
+        <div>
+            <label for="name">Url</label>
+            <input type="url" class="k-textbox" placeholder="Link" required />
+        </div>
+        <div>
+            <label for="target">link action</label>
+            <input type="radio" name="target" value="0" /> Current Page <br />
+            <input type="radio" name="target" value="1" /> New Tab <br />
+            <input type="radio" name="target" value="2" /> New Tab No Toolbar <br />
+        </div>
+        <div>
+            <label for="imageSrc">Image Url</label>
+            <input type="url" class="k-textbox" name="imageSrc" placeholder="Image Url" />
+        </div>
+        <div>
+            <label for="imageAltText">Image Description</label>
+            <input type="text" class="k-textbox" name="imageAltText" placeholder="Image Description" />
+        </div>
+    </form>
 </div>

@@ -25,27 +25,27 @@
         }
     });
 
-    var treeSource = new kendo.data.HierarchicalDataSource({
-        transport: transport,
-        schema: {
-            data: function (data) {
-                var parse = function (links) {
-                    return $.map(links, function (link) {
-                        return {
-                            text: link.Name,
-                            imageUrl: link.ImageSrc,
-                            items: parse(link.Links)
-                        };
-                    });
-                };
+    //var treeSource = new kendo.data.HierarchicalDataSource({
+    //    transport: transport,
+    //    schema: {
+    //        data: function (data) {
+    //            var parse = function (links) {
+    //                return $.map(links, function (link) {
+    //                    return {
+    //                        text: link.Name,
+    //                        imageUrl: link.ImageSrc,
+    //                        items: parse(link.Links)
+    //                    };
+    //                });
+    //            };
 
-                return parse(data.Links);
-            }
-        }
-    });
+    //            return parse(data.Links);
+    //        }
+    //    }
+    //});
 
     $("#menu").kendoMenu({
-        datasource: source,
+        datasource: menuSource,
         autobind: false,
         closeOnClick: false,
         select: function (e) {
@@ -53,8 +53,8 @@
         }
     });
 
-    $("#tree").kendoTreeview({
-        datasource: treeSource,
-        autobind: false
-    });
+    //$("#tree").kendoTreeview({
+    //    datasource: treeSource,
+    //    autobind: false
+    //});
 });
