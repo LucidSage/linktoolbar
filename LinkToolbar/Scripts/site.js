@@ -1,77 +1,39 @@
 ﻿$(document).ready(function () {
-    var data = [
-    {
-        "LinkId": 1,
-        "Version": 1,
-        "Name": "alsdkjf",
-        "ImageSrc": "alsdkjf",
-        "ImageAltText": "sadljk;f",
-        "Target": 1,
-        "TargetHref": "1",
-        "Links": [
-          {
-              "LinkId": 2,
-              "Version": 1,
-              "Name": "CHILD",
-              "ImageSrc": "LLL",
-              "ImageAltText": "LLL",
-              "Target": 1,
-              "TargetHref": "1",
-              "Links": null,
-              "Visibility": 1
-          }
-        ],
-        "Visibility": 1
-    },
-    {
-        "LinkId": 2,
-        "Version": 1,
-        "Name": "CHILD",
-        "ImageSrc": "LLL",
-        "ImageAltText": "LLL",
-        "Target": 1,
-        "TargetHref": "1",
-        "Links": null,
-        "Visibility": 1
-    }
-    ];
+    var source;
 
     var parseMenu = function (links) {
-        return $.map(links, function (link) {
+        var map = $.map(links, function (link) {
             var l = {
-                text: link.Name,
+                id: link.LinkId,
+                text: link.Name
             };
             if (link.ImageSrc) l.imageUrl = link.ImageSrc;
-            if (link.Links) l.items = parseMenu(link.Links);
+            if (link.Links) {
+                console.log("links found.");
+                l.items = parseMenu(link.Links);
+            }
             return l;
         });
+        console.log(map.slice);
+        return map;
     };
 
-    //var transport = {
-    //    read: {
-    //        url: "/links",
-    //        dataType: "json"
-    //    }
-    //};
+    var transport = {
+        read: {
+            url: "/api/link",
+            dataType: "json"
+        }
+    };
 
-    //var menuSource = new kendo.data.DataSource({
-        //transport: transport,
-        //schema: {
-        //    data: function (data) {
-        //        var parse = function (links) {
-        //            return $.map(links, function (link) {
-        //                return {
-        //                    text: link.Name,
-        //                    imageUrl: link.ImageSrc,
-        //                    items: parse(link.Links)
-        //                };
-        //            });
-        //        };
-
-        //        return parse(data.Links);
-        //    }
-        //}
-    //});
+    var menuSource = new kendo.data.DataSource({
+        transport: transport,
+        schema: {
+            data: function (data) {
+                source = data;
+                return parseMenu(data);
+            }
+        }
+    });
 
     //var treeSource = new kendo.data.HierarchicalDataSource({
     //    transport: transport,
@@ -92,13 +54,15 @@
     //    }
     //});
 
-    $("#menu").kendoMenu({
-        dataSource: parseMenu(data),
+    var menu = $("#menu").kendoMenu({
+        dataSource: menuSource,
         closeOnClick: false,
-        openOnClick: true,
         select: function (e) {
+            console.log(e);
         }
     });
+
+    //menuSource.read();
 
     //$("#tree").kendoTreeview({
     //    datasource: treeSource,
