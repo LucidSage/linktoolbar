@@ -1,25 +1,49 @@
-﻿ [
-                                     {
-                                         "text": "PREPAREDNESS"
-                                     },
-                                     {
-                                         "text": "MONITORING",
-                                         "items": [
-                                                 {
-                                                     "text": "Drought",
-                                                     "items": [
-                                                           {
-                                                               "text": "USA Drought",
-                                                               "url": "http://droughtmonitor.unl.edu/",
-															   "imageUrl": "img/activity_preparedness_32px_icon.png"
-                                                           },
-                                                            {
-                                                                "text": "Global Drought Link",
-                                                                "url": "http://drought.mssl.ucl.ac.uk/drought.html",
-																 "imageUrl": "img/activity_public_information_32px_icon.png"
-                                                            }
-                                                     ]
-                                                 }
-                                         ]
-                                     }
-                                    ]
+﻿[
+  {
+    "name": "PREPAREDNESS",
+    "target": "0",
+    "targetHref": ""
+    "image": "img/activity_preparedness_32px_icon.png",
+    "imageAlt": "preparedness",
+    "visiblity": "0",
+    "links": []
+  },
+  {
+    "name": "PREPAREDNESS",
+    "target": "0",
+    "targetHref": ""
+    "imageSource": "img/activity_preparedness_32px_icon.png",
+    "imageAlt": "preparedness",
+    "visiblity": "0",
+    "links": [
+      {
+        "name": "Drought",
+        "target": "0",
+        "targetHref": ""
+        "imageSource": "img/activity_preparedness_32px_icon.png",
+        "imageAlt": "preparedness",
+        "visiblity": "0",
+        "links": [
+          {
+            "name": "USA Drought",
+            "target": "0",
+            "targetHref": "http://droughtmonitor.unl.edu/",
+            "imageSource": "img/activity_preparedness_32px_icon.png",
+            "imageAlt": "preparedness",
+            "visiblity": "0",
+            "links": []
+          },
+          {
+            "name": "Global Drought Link",
+            "target": "0",
+            "targetHref": "http://drought.mssl.ucl.ac.uk/drought.html",
+            "imageSource": "img/activity_public_information_32px_icon.png",
+            "imageAlt": "preparedness",
+            "visiblity": "0",
+            "links": []
+          }
+        ]
+      }
+    ]
+  }
+]
