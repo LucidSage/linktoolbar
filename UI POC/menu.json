@@ -10,11 +10,13 @@
                                                      "items": [
                                                            {
                                                                "text": "USA Drought",
-                                                               "url": "http://droughtmonitor.unl.edu/"
+                                                               "url": "http://droughtmonitor.unl.edu/",
+															   "imageUrl": "img/activity_preparedness_32px_icon.png"
                                                            },
                                                             {
                                                                 "text": "Global Drought Link",
-                                                                "url": "http://drought.mssl.ucl.ac.uk/drought.html"
+                                                                "url": "http://drought.mssl.ucl.ac.uk/drought.html",
+																 "imageUrl": "img/activity_public_information_32px_icon.png"
                                                             }
                                                      ]
                                                  }
