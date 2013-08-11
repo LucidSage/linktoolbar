@@ -1,49 +1,32 @@
 ﻿<div id="menu"></div>
-@*data: [{ "LinkId": 1, "Version": 1, "Name": "alsdkjf", "ImageSrc": "alsdkjf", "ImageAltText": "sadljk;f", "Target": 1, "TargetHref": "1", "Links": [{ "LinkId": 2, "Version": 1, "Name": "CHILD", "ImageSrc": "LLL", "ImageAltText": "LLL", "Target": 1, "TargetHref": "1", "Links": null, "Visibility": 1 }], "Visibility": 1 }, { "LinkId": 2, "Version": 1, "Name": "CHILD", "ImageSrc": "LLL", "ImageAltText": "LLL", "Target": 1, "TargetHref": "1", "Links": null, "Visibility": 1 }],*@
+
+<div id="editor">
+    <form>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" class="k-textbox" placeholder="Name" name="name" required />
+        </div>
+        <div>
+            <label for="name">Url</label>
+            <input type="url" class="k-textbox" placeholder="Link" required />
+        </div>
+        <div>
+            <label for="target">link action</label>
+            <input type="radio" name="target" value="0" /> Current Page <br />
+            <input type="radio" name="target" value="1" /> New Tab <br />
+            <input type="radio" name="target" value="2" /> New Tab No Toolbar <br />
+        </div>
+        <div>
+            <label for="imageSrc">Image Url</label>
+            <input type="url" class="k-textbox" name="imageSrc" placeholder="Image Url" />
+        </div>
+        <div>
+            <label for="imageAltText">Image Description</label>
+            <input type="text" class="k-textbox" name="imageAltText" placeholder="Image Description" />
+        </div>
+    </form>
+</div>
 
 @section scripts{
-    <script>
-
-        $(document).ready(function () {
-            var source = new kendo.data.DataSource({
-                transport: {
-                            read: {
-                                url: "http://localhost:49330/links",
-                                dataType: "json"
-                            }
-                        },
-                schema: {
-                    data: function (data) {
-                        var parse = function(links){
-                            return $.map(links, function(link){
-                                return {
-                                    text: link.Name,
-                                    imageUrl: link.ImageSrc,
-                                    items: parse(link.Links)
-                                };
-                            });
-                        };
-
-                        return parse(data.Links);
-                    }
-                }
-            });
-            //var source = new kendo.data.DataSource({
-            //    transport: {
-            //        read: {
-            //            url: "http://localhost:49330/link",
-            //            dataType: "json"
-            //        }
-            //    }
-            //});
-
-            //$("#menu").kendoMenu({
-            //    dataSource: source,
-            //    dataTextField: "name"
-            //});
-                
-
-            $("#menu").kendoMenu({datasource: source});
-        });
-    </script>
+    @Scripts.Render("~/Scripts/site.js")
 }
