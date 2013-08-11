@@ -1,0 +1,23 @@
+﻿ [
+                                     {
+                                         "text": "PREPAREDNESS"
+                                     },
+                                     {
+                                         "text": "MONITORING",
+                                         "items": [
+                                                 {
+                                                     "text": "Drought",
+                                                     "items": [
+                                                           {
+                                                               "text": "USA Drought",
+                                                               "url": "http://droughtmonitor.unl.edu/"
+                                                           },
+                                                            {
+                                                                "text": "Global Drought Link",
+                                                                "url": "http://drought.mssl.ucl.ac.uk/drought.html"
+                                                            }
+                                                     ]
+                                                 }
+                                         ]
+                                     }
+                                    ]
