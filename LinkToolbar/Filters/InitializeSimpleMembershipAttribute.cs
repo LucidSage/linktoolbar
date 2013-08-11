@@ -25,11 +25,11 @@ namespace LinkToolbar.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<LinkToolbarContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new LinkToolbarContext())
                     {
                         if (!context.Database.Exists())
                         {

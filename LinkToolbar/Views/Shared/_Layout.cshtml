@@ -27,6 +27,7 @@
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
+                @RenderSection("toolbar", false)
                 @RenderBody()
             </section>
         </div>

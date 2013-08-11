@@ -89,6 +89,8 @@ csx
 AppPackages/
 
 # Others
+*.mdf
+*.ldf
 [Bb]in
 [Oo]bj
 sql
