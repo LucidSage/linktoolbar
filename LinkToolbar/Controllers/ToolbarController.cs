@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,16 +11,16 @@ namespace LinkToolbar.Controllers
     {
         public ActionResult Index(string href)
         {
-            if (!string.IsNullOrWhiteSpace(href))
+            ToolbarViewModel toolbarViewModel = new ToolbarViewModel
             {
-                ViewBag.frameTarget = href;
-            }
-
+                FrameTarget = href
+            };
+            
             using (var db = new LinkToolbarContext())
             {
-                ViewBag.links = db.Links.Include("Links").DistinctBy((link => link.LinkId));
+                toolbarViewModel.Links = db.Links.Include("Links").ToList();
             }
-            return View();
+            return View(toolbarViewModel);
         }
 
     }
