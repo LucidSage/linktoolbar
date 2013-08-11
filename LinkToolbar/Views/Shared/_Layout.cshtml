@@ -6,6 +6,8 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/KendoUI/kendo.common.min.css")
+        @Styles.Render("~/Content/KendoUI/kendo.default.min.css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
@@ -36,7 +38,9 @@
             </div>
         </footer>
 
-        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Scripts/KendoUI/jquery.min.js")
+        @Scripts.Render("~/Scripts/KendoUI/kendo.web.min.js")
+        @Scripts.Render("~/Scripts/KendoUI/kendo.all.min.js")
         @RenderSection("scripts", required: false)
     </body>
 </html>
