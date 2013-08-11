@@ -10,6 +10,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{86997D
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Poc", "Poc", "{8E368751-1300-43D9-9C44-FF732F4EF0E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI POC", "UI POC", "{92905C75-992B-45BD-A7C9-637D5F258C34}"
+	ProjectSection(SolutionItems) = preProject
+		UI POC\logo56.png = UI POC\logo56.png
+		UI POC\menu.json = UI POC\menu.json
+		UI POC\NavFrame.html = UI POC\NavFrame.html
+		UI POC\NavFramewithDS.html = UI POC\NavFramewithDS.html
+		UI POC\NavFramewithJSON.html = UI POC\NavFramewithJSON.html
+		UI POC\Web.config = UI POC\Web.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92905C75-992B-45BD-A7C9-637D5F258C34} = {8E368751-1300-43D9-9C44-FF732F4EF0E7}
 	EndGlobalSection
 EndGlobal

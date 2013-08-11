@@ -187,6 +187,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkController.cs" />
+    <Compile Include="Controllers\ToolbarController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -237,11 +238,11 @@
     <Content Include="Global.asax" />
     <Content Include="Images\heartAid.jpg" />
     <Content Include="Images\HTBox-v1.png" />
-    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\jquery-2.0.3.js" />
-    <Content Include="Scripts\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -734,6 +735,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
+    <Content Include="Views\Toolbar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

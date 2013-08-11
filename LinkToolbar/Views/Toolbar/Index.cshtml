@@ -1,0 +1,292 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>HR Link Toolbar</title>
+        <script text="text/javascript" src="~/Scripts/modernizr-2.6.2.js"></script>
+        <link href="~/Content/KendoUI/kendo.common.min.css" rel="stylesheet" />
+        <link href="~/Content/KendoUI/kendo.bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/override.css" rel="stylesheet" />
+    </head>
+    <body >
+        <div id="Div1" class="k-content respLarge">
+            <div id="megaStore">
+                <ul id="menu" >
+                    <li>
+                        <img src="img/activity_preparedness_32px_icon.png" />Preparedness
+                    </li>
+                    <li>
+                        <img src="img/activity_public_information_32px_icon.png" />Monitoring
+                        <ul> <!-- moving the UL to the next line will cause an IE7 problem -->
+                            <li>Drought
+                                <ul>
+                                    <li><a href="http://droughtmonitor.unl.edu" target="_blank"><img src="img/activity_preparedness_32px_icon.png" />USA Drought</a></li>
+                                    <li><a href="NavFrame.html?targ=http://drought.mssl.ucl.ac.uk/drought.html"  target="_blank" ><img src="img/activity_public_information_32px_icon.png" />Global Drought Link</a></li>
+                                </ul>
+                            </li>
+                            <li>Earthquake
+                                <ul>
+                                    <li><a href="http://earthquake.usgs.gov/earthquakes/map/" target="theFrame" ><img src="img/activity_reporting_32px_icon.png" />World USGS</a></li>
+                                    <li><a href="http://earthquake.usgs.gov/monitoring/operations/heliplots_gsn.php" target="theFrame"><img src="img/activity_response_32px_icon.png"/>USA Live Heliplots</a></li>
+                                    <li><a href="http://www.pnsn.org/earthquakes/recent"  target="theFrame"><img src="img/activity_scale_operation_32px_icon.png" />PNW Network Earthquakes</a></li>
+                                    <li><a href="http://www.ncedc.org/bdsn/quicklook.html"  target="theFrame">California Heliplots</a></li>
+                                    <li ><hr /></li>
+                                    <li><a href="http://www.emsc-csem.org/#2"  target="theFrame">European Earthquake Ctr. EMSC</a></li>
+                                    <li><a href="http://irsc.ut.ac.ir/currentearthq.php"  target="theFrame">Iranian Earthquake Ctr</a></li>
+                                    <li><a href="http://earthquake-report.com/"  target="theFrame">EQ Reporter</a></li>
+                                </ul>
+                            </li>
+                            <li><img src="img/activity_reporting_32px_icon.png" />Hurricane/Cyclone
+                                <ul>
+                                    <li><a href="/?targ=http://tropic.ssec.wisc.edu/real-time/mimic-tpw/global/main.html"  target="_blank">Global moisture plot</a></li>
+                                    <li><a href="http://www.nhc.noaa.gov/"  target="theFrame">National Hurricane Center</a></li>
+                                    <li><a href="http://www.nrlmry.navy.mil/TC.html"  target="theFrame">NRL Tropical Cyclone Page</a></li>
+                                    <li><a href="http://www.nasa.gov/mission_pages/hurricanes/main/index.html"  target="theFrame">NASA Hurricanes/Tropical Cyclones </a></li>
+                                    <li><a href="http://www.wunderground.com/tropical/"  target="theFrame">Weather Underground</a></li>
+                                    <li><a href="http://tropic.ssec.wisc.edu/"  target="theFrame">CIMSS Tropical Cyclone</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li ><div class="vertical-line"></div></li>-->
+                    <li>
+                        <img src="img/activity_response_32px_icon.png"/>Response
+                        <ul> <!-- moving the UL to the next line will cause an IE7 problem -->
+                            <li><img src="img/activity_scale_operation_32px_icon.png" />Disaster Desk
+                                <ul>
+                                    <li><a href="http://humanityroad.org/Hashboard" target="_blank">Hashboard</a></li>
+                                    <li><a href="http://www.google.com/advanced_image_search" target="_blank">Advanced Image Search</a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184064/Example_Advanced_Twitter_Search" target="_blank">Advanced Twitter Tips</a></li>
+                                    <li><a href="https://docs.google.com/document/d/11PDTAMGJwNc4SjPGg49IAKKxdTGnNmYV9ejygiIMTyk/edit" target="_blank">Create Event Doc</a></li>
+                                    <li><a href="http://www.humanityroad.org/_literature_50026/Earthquake_Event_Training" target="_blank">Earthquake Tips </a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184063/Tornado_Tweeting_Tips" target="_blank">Tornado Tips</a></li>
+                                </ul>
+                            </li>
+                            <li>Animals in Disaster
+                                <ul>
+                                    <li><a href="http://aiddigest.wordpress.com/2013/03/26/disaster-planning-and-response-for-service-animals/" target="_blank">Service Dogs</a></li>
+                                    <li><a href="http://humanityroad.org/animals-in-disaster-digest" target="_blank">AID Blog</a></li>
+                                    <li><a href="http://www.petfinder.com/animal-shelters-and-rescues/" target="_blank">Animal Shelter & Rescue Directory</a></li>
+                                    <li><a href="http://www.veterinarian-pages.com/#country=USA" target="_blank">International Directory of Veterinarians</a></li>
+                                    <li><a href="http://www.vetlocator.com/" target="_blank">Veterinarian Locator </a></li>
+                                </ul>
+                            </li>
+                            <li>USA Links
+                                <ul>
+                                    <li><a href="https://twitter.com/fema/state-em-offices" target="_blank">State EMA TwitList</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0" target="_blank">State CERT</a></li>
+                                    <li><a href="#">States</a>
+                                        <ul>
+                                            <li><a href="http://www.ema.alabama.gov/">State Spreadsheet</a> </li>
+                                            <li><a href="http://www.ema.alabama.gov/">Alabama</a> </li>
+                                            <li><a href="http://www.ak-prepared.com/">Alaska</a> </li>
+                                            <li><a href="http://asdhs.org/">American Samoa</a></li>
+                                            <li><a href="http://www.dem.azdema.gov/">Arizona</a> </li>
+                                            <li><a href="http://adem.arkansas.gov/">Arkansas</a> </li>
+                                            <li><a href="http://www.calema.ca.gov/Pages/default.aspx">California</a> </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="img/activity_response_32px_icon.png"/>Blah
+                        <ul> <!-- moving the UL to the next line will cause an IE7 problem -->
+                            <li><img src="img/activity_scale_operation_32px_icon.png" />Disaster Desk
+                                <ul>
+                                    <li><a href="http://humanityroad.org/Hashboard" target="_blank">Hashboard</a></li>
+                                    <li><a href="http://www.google.com/advanced_image_search" target="_blank">Advanced Image Search</a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184064/Example_Advanced_Twitter_Search" target="_blank">Advanced Twitter Tips</a></li>
+                                    <li><a href="https://docs.google.com/document/d/11PDTAMGJwNc4SjPGg49IAKKxdTGnNmYV9ejygiIMTyk/edit" target="_blank">Create Event Doc</a></li>
+                                    <li><a href="http://www.humanityroad.org/_literature_50026/Earthquake_Event_Training" target="_blank">Earthquake Tips </a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184063/Tornado_Tweeting_Tips" target="_blank">Tornado Tips</a></li>
+                                </ul>
+                            </li>
+                            <li>Animals in Disaster
+                                <ul>
+                                    <li><a href="http://aiddigest.wordpress.com/2013/03/26/disaster-planning-and-response-for-service-animals/" target="_blank">Service Dogs</a></li>
+                                    <li><a href="http://humanityroad.org/animals-in-disaster-digest" target="_blank">AID Blog</a></li>
+                                    <li><a href="http://www.petfinder.com/animal-shelters-and-rescues/" target="_blank">Animal Shelter & Rescue Directory</a></li>
+                                    <li><a href="http://www.veterinarian-pages.com/#country=USA" target="_blank">International Directory of Veterinarians</a></li>
+                                    <li><a href="http://www.vetlocator.com/" target="_blank">Veterinarian Locator </a></li>
+                                </ul>
+                            </li>
+                            <li>USA Links
+                                <ul>
+                                    <li><a href="https://twitter.com/fema/state-em-offices" target="_blank">State EMA TwitList</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0" target="_blank">State CERT</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0AgnZhKE3EJxNdDBia29mMU92QkxDZENFdUxrNHVVVGc#gid=27" target="_blank">State Spreadsheet</a>
+                                        <ul>
+                                            <li><a href="http://www.ema.alabama.gov/"></a>Alabama </li>
+                                            <li><a href="http://www.ak-prepared.com/"></a>Alaska </li>
+                                            <li><a href="http://asdhs.org/"></a>American Samoa</li>
+                                            <li><a href="http://www.dem.azdema.gov/"></a>Arizona </li>
+                                            <li><a href="http://adem.arkansas.gov/"></a>Arkansas </li>
+                                            <li><a href="http://www.calema.ca.gov/Pages/default.aspx"></a>California </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="img/activity_response_32px_icon.png"/>Blah Blah
+                        <ul> <!-- moving the UL to the next line will cause an IE7 problem -->
+                            <li><img src="img/activity_scale_operation_32px_icon.png" />Disaster Desk
+                                <ul>
+                                    <li><a href="http://humanityroad.org/Hashboard" target="_blank">Hashboard</a></li>
+                                    <li><a href="http://www.google.com/advanced_image_search" target="_blank">Advanced Image Search</a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184064/Example_Advanced_Twitter_Search" target="_blank">Advanced Twitter Tips</a></li>
+                                    <li><a href="https://docs.google.com/document/d/11PDTAMGJwNc4SjPGg49IAKKxdTGnNmYV9ejygiIMTyk/edit" target="_blank">Create Event Doc</a></li>
+                                    <li><a href="http://www.humanityroad.org/_literature_50026/Earthquake_Event_Training" target="_blank">Earthquake Tips </a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184063/Tornado_Tweeting_Tips" target="_blank">Tornado Tips</a></li>
+                                </ul>
+                            </li>
+                            <li>Animals in Disaster
+                                <ul>
+                                    <li><a href="http://aiddigest.wordpress.com/2013/03/26/disaster-planning-and-response-for-service-animals/" target="_blank">Service Dogs</a></li>
+                                    <li><a href="http://humanityroad.org/animals-in-disaster-digest" target="_blank">AID Blog</a></li>
+                                    <li><a href="http://www.petfinder.com/animal-shelters-and-rescues/" target="_blank">Animal Shelter & Rescue Directory</a></li>
+                                    <li><a href="http://www.veterinarian-pages.com/#country=USA" target="_blank">International Directory of Veterinarians</a></li>
+                                    <li><a href="http://www.vetlocator.com/" target="_blank">Veterinarian Locator </a></li>
+                                </ul>
+                            </li>
+                            <li>USA Links
+                                <ul>
+                                    <li><a href="https://twitter.com/fema/state-em-offices" target="_blank">State EMA TwitList</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0" target="_blank">State CERT</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0AgnZhKE3EJxNdDBia29mMU92QkxDZENFdUxrNHVVVGc#gid=27" target="_blank">State Spreadsheet</a>
+                                        <ul>
+                                            <li><a href="http://www.ema.alabama.gov/"></a>Alabama </li>
+                                            <li><a href="http://www.ak-prepared.com/"></a>Alaska </li>
+                                            <li><a href="http://asdhs.org/"></a>American Samoa</li>
+                                            <li><a href="http://www.dem.azdema.gov/"></a>Arizona </li>
+                                            <li><a href="http://adem.arkansas.gov/"></a>Arkansas </li>
+                                            <li><a href="http://www.calema.ca.gov/Pages/default.aspx"></a>California </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="img/activity_response_32px_icon.png"/>blah Blah blah blah
+                        <ul> <!-- moving the UL to the next line will cause an IE7 problem -->
+                            <li><img src="img/activity_scale_operation_32px_icon.png" />Disaster Desk
+                                <ul>
+                                    <li><a href="http://humanityroad.org/Hashboard" target="_blank">Hashboard</a></li>
+                                    <li><a href="http://www.google.com/advanced_image_search" target="_blank">Advanced Image Search</a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184064/Example_Advanced_Twitter_Search" target="_blank">Advanced Twitter Tips</a></li>
+                                    <li><a href="https://docs.google.com/document/d/11PDTAMGJwNc4SjPGg49IAKKxdTGnNmYV9ejygiIMTyk/edit" target="_blank">Create Event Doc</a></li>
+                                    <li><a href="http://www.humanityroad.org/_literature_50026/Earthquake_Event_Training" target="_blank">Earthquake Tips </a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184063/Tornado_Tweeting_Tips" target="_blank">Tornado Tips</a></li>
+                                </ul>
+                            </li>
+                            <li>Animals in Disaster
+                                <ul>
+                                    <li><a href="http://aiddigest.wordpress.com/2013/03/26/disaster-planning-and-response-for-service-animals/" target="_blank">Service Dogs</a></li>
+                                    <li><a href="http://humanityroad.org/animals-in-disaster-digest" target="_blank">AID Blog</a></li>
+                                    <li><a href="http://www.petfinder.com/animal-shelters-and-rescues/" target="_blank">Animal Shelter & Rescue Directory</a></li>
+                                    <li><a href="http://www.veterinarian-pages.com/#country=USA" target="_blank">International Directory of Veterinarians</a></li>
+                                    <li><a href="http://www.vetlocator.com/" target="_blank">Veterinarian Locator </a></li>
+                                </ul>
+                            </li>
+                            <li>USA Links
+                                <ul>
+                                    <li><a href="https://twitter.com/fema/state-em-offices" target="_blank">State EMA TwitList</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0" target="_blank">State CERT</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0AgnZhKE3EJxNdDBia29mMU92QkxDZENFdUxrNHVVVGc#gid=27" target="_blank">State Spreadsheet</a>
+                                        <ul>
+                                            <li><a href="http://www.ema.alabama.gov/"></a>Alabama </li>
+                                            <li><a href="http://www.ak-prepared.com/"></a>Alaska </li>
+                                            <li><a href="http://asdhs.org/"></a>American Samoa</li>
+                                            <li><a href="http://www.dem.azdema.gov/"></a>Arizona </li>
+                                            <li><a href="http://adem.arkansas.gov/"></a>Arkansas </li>
+                                            <li><a href="http://www.calema.ca.gov/Pages/default.aspx"></a>California </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="img/activity_response_32px_icon.png"/>huh?
+                        <ul> <!-- moving the UL to the next line will cause an IE7 problem -->
+                            <li><img src="img/activity_scale_operation_32px_icon.png" />Disaster Desk
+                                <ul>
+                                    <li><a href="http://humanityroad.org/Hashboard" target="_blank">Hashboard</a></li>
+                                    <li><a href="http://www.google.com/advanced_image_search" target="_blank">Advanced Image Search</a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184064/Example_Advanced_Twitter_Search" target="_blank">Advanced Twitter Tips</a></li>
+                                    <li><a href="https://docs.google.com/document/d/11PDTAMGJwNc4SjPGg49IAKKxdTGnNmYV9ejygiIMTyk/edit" target="_blank">Create Event Doc</a></li>
+                                    <li><a href="http://www.humanityroad.org/_literature_50026/Earthquake_Event_Training" target="_blank">Earthquake Tips </a></li>
+                                    <li><a href="http://humanityroad.org/_literature_184063/Tornado_Tweeting_Tips" target="_blank">Tornado Tips</a></li>
+                                </ul>
+                            </li>
+                            <li>Animals in Disaster
+                                <ul>
+                                    <li><a href="http://aiddigest.wordpress.com/2013/03/26/disaster-planning-and-response-for-service-animals/" target="_blank">Service Dogs</a></li>
+                                    <li><a href="http://humanityroad.org/animals-in-disaster-digest" target="_blank">AID Blog</a></li>
+                                    <li><a href="http://www.petfinder.com/animal-shelters-and-rescues/" target="_blank">Animal Shelter & Rescue Directory</a></li>
+                                    <li><a href="http://www.veterinarian-pages.com/#country=USA" target="_blank">International Directory of Veterinarians</a></li>
+                                    <li><a href="http://www.vetlocator.com/" target="_blank">Veterinarian Locator </a></li>
+                                </ul>
+                            </li>
+                            <li>USA Links
+                                <ul>
+                                    <li><a href="https://twitter.com/fema/state-em-offices" target="_blank">State EMA TwitList</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0" target="_blank">State CERT</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheet/ccc?key=0AgnZhKE3EJxNdDBia29mMU92QkxDZENFdUxrNHVVVGc#gid=27" target="_blank">State Spreadsheet</a>
+                                        <ul>
+                                            <li><a href="http://www.ema.alabama.gov/"></a>Alabama </li>
+                                            <li><a href="http://www.ak-prepared.com/"></a>Alaska </li>
+                                            <li><a href="http://asdhs.org/"></a>American Samoa</li>
+                                            <li><a href="http://www.dem.azdema.gov/"></a>Arizona </li>
+                                            <li><a href="http://adem.arkansas.gov/"></a>Arkansas </li>
+                                            <li><a href="http://www.calema.ca.gov/Pages/default.aspx"></a>California </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <iframe class="theFrame" id="theFrame" name="theFrame" src="http://www.humanityroad.org/"></iframe>
+        
+        <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/KendoUI/kendo.all.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var newSource;
+                
+                $("#menu").kendoMenu();
+                $('#theFrame').css('height', $(window).height() + 'px');
+
+                function getQueryVariable(variable) {
+                    var query = window.location.search.substring(1);
+                    var vars = query.split("&");
+                    for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split("=");
+                        if (pair[0] == variable) {
+                            return pair[1];
+                        }
+                    }
+                    return (false);
+                }
+                newSource = getQueryVariable("targ");
+                if (newSource){
+                    document.getElementById('theFrame').src = newSource;
+                }
+            });
+
+        </script> 
+    </body>
+</html>
+<!--http://localhost:51014/NavFrame.html?targ=http://www.humanityroad.org/-->
