@@ -18,7 +18,7 @@ namespace LinkToolbar.Controllers
             
             using (var db = new LinkToolbarContext())
             {
-                toolbarViewModel.Links = db.Links.Include("Links").ToList();
+                toolbarViewModel.Links = db.Links.Include("Links").DistinctBy(l=>l.LinkId).OrderBy(l=>l.LinkId).Take(2).ToList();
             }
             return View(toolbarViewModel);
         }

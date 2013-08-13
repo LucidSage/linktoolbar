@@ -36,72 +36,55 @@ namespace LinkToolbar.Migrations
         private IList<Link> createLinks()
         {
             IList<Link> seeds = new List<Link>();
-
-            seeds.Add(createLink("PREPAREDNESS", "", new List<Link>()));
+            int linkId = 2;
 
             seeds.Add(createLink("MONITORING", "", new List<Link>
             {
                 createLink("Drought", "", new List<Link>
                 {
-                    createLink("USA Drought", "http://droghtmonitor.unl.edu", new List<Link>()),
-                    createLink("Global Drought Link", "http://drought.mssl.ucl.ac.uk/drought.html", new List<Link>())
-                }),
+                    createLink("USA Drought", "http://droughtmonitor.unl.edu", new List<Link>(),++linkId),
+                    createLink("Global Drought Link", "http://drought.mssl.ucl.ac.uk/drought.html", new List<Link>(),++linkId)
+                },++linkId),
                 createLink("Earthquake", "", new List<Link>
                 {
-                    createLink("World USGS", "http://earthquake.usgs.gov/earthquakes/map/", new List<Link>()),
+                    createLink("World USGS", "http://earthquake.usgs.gov/earthquakes/map/", new List<Link>(),++linkId),
                     createLink("USA Live Heliplots",
-                        "http://earthquake.usgs.gov/monitoring/operations/heliplots_gsn.php", new List<Link>()),
-                    createLink("PNW Network Earthquakes", "http://www.pnsn.org/earthquakes/recent", new List<Link>())
-                })
-            }));
+                        "http://earthquake.usgs.gov/monitoring/operations/heliplots_gsn.php", new List<Link>(),++linkId),
+                    createLink("PNW Network Earthquakes", "http://www.pnsn.org/earthquakes/recent", new List<Link>(),++linkId)
+                },++linkId)
+            }, 2));
 
-
-            seeds.Add(
-                createLink("MONITORING", "", new List<Link>
-                {
-                    createLink("Drought", "", new List<Link>
-                    {
-                        createLink("USA Drought", "http://droghtmonitor.unl.edu", new List<Link>()),
-                        createLink("Global Drought Link", "http://drought.mssl.ucl.ac.uk/drought.html", new List<Link>())
-                    }),
-                    createLink("Earthquake", "", new List<Link>
-                    {
-                        createLink("World USGS", "http://earthquake.usgs.gov/earthquakes/map/", new List<Link>()),
-                        createLink("USA Live Heliplots",
-                            "http://earthquake.usgs.gov/monitoring/operations/heliplots_gsn.php", new List<Link>()),
-                        createLink("PNW Network Earthquakes", "http://www.pnsn.org/earthquakes/recent", new List<Link>())
-                    })
-                }));
-
-            seeds.Add(createLink("-", "", new List<Link>()));
+            seeds.Add(createLink("-", "", new List<Link>(), ++linkId));
 
             seeds.Add(
                 createLink("RESPONSE", "", new List<Link>
                 {
                     createLink("USA Links", "", new List<Link>
                     {
-                        createLink("State EMA TwitList", "https://twitter.com/fema/state-em-offices",new List<Link>()),
-                        createLink("State CERT", "https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0", new List<Link>()),
-                        createLink("State Spreadsheet", "https://docs.google.com/spreadsheet/ccc?key=0AgnZhKE3EJxNdDBia29mMU92QkxDZENFdUxrNHVVVGc#gid=27", new List<Link>
+                        createLink("State EMA TwitList", "https://twitter.com/fema/state-em-offices",new List<Link>(),++linkId),
+                        createLink("State CERT", "https://docs.google.com/spreadsheet/ccc?key=0Ai5GhFyoXs0LdFo2eEp2RXhaSURGUWpHVEhOcDVNSEE#gid=0", new List<Link>(),++linkId),
+                        createLink("States", "", new List<Link>
                         {
-                            createLink("Alabama", "http://www.ema.alabama.gov/", new List<Link>()),
-                            createLink("Alaska", "http://www.ak-prepared.com/", new List<Link>()),
-                            createLink("American Samoa", "http://asdhs.org/", new List<Link>()),
-                            createLink("Arizona", "http://www.dem.azdema.gov/", new List<Link>()),
-                            createLink("Arkansas", "http://adem.arkansas.gov/", new List<Link>()),
-                            createLink("California", "http://www.calema.ca.gov/Pages/default.aspx", new List<Link>())
-                        })
-                    })
-                }));
+                            createLink("State Spreadsheet", "https://docs.google.com/spreadsheet/ccc?key=0AgnZhKE3EJxNdDBia29mMU92QkxDZENFdUxrNHVVVGc#gid=27",new List<Link>(),++linkId),
+                            createLink("Alabama", "http://www.ema.alabama.gov/", new List<Link>(),++linkId),
+                            createLink("Alaska", "http://www.ak-prepared.com/", new List<Link>(),++linkId),
+                            createLink("American Samoa", "http://asdhs.org/", new List<Link>(),++linkId),
+                            createLink("Arizona", "http://www.dem.azdema.gov/", new List<Link>(),++linkId),
+                            createLink("Arkansas", "http://adem.arkansas.gov/", new List<Link>(),++linkId),
+                            createLink("California", "http://www.calema.ca.gov/Pages/default.aspx", new List<Link>(),++linkId)
+                        },++linkId)
+                    },++linkId)
+                }, 2));
 
             return seeds;
         }
 
-        private Link createLink(string name, string href = "", List<Link> subLinks = null)
+        private Link createLink(string name, string href = "", List<Link> subLinks = null, int id = 0)
         {
             return new Link
             {
-                ImageSrc = "~/Images/heartAid.jpg",
+                LinkId = id,
+                ImageSrc = "/Images/unocha_icons/activity_information_management_32px_icon_bluebox.png",
                 Version = 1,
                 ImageAltText = name,
                 Name = name,
