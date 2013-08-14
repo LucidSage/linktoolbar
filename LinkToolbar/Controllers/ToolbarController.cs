@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using LinkToolbar.Models;
 using Microsoft.Ajax.Utilities;
 
@@ -18,7 +20,7 @@ namespace LinkToolbar.Controllers
             
             using (var db = new LinkToolbarContext())
             {
-                toolbarViewModel.Links = db.Links.Include("Links").DistinctBy(l=>l.LinkId).OrderBy(l=>l.LinkId).Take(2).ToList();
+                toolbarViewModel.Links = db.Links.Include(l=>l.Links).ToList().Where(l=>!l.ParentId.HasValue);
             }
             return View(toolbarViewModel);
         }

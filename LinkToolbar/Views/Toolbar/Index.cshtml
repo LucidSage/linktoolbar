@@ -23,7 +23,8 @@
         {
             string target = link.Target == LinkTarget.Current ? "theFrame" : "_blank";
             string computedHref = link.Target == LinkTarget.NewTab ? "/?targ=" + link.TargetHref : link.TargetHref;
-            <li><a href="@computedHref" alt="@link.Name" target="@target">@link.Name</a></li>
+            string displayText = link.Name == "-" ? "|" : link.Name;
+            <li><a href="@computedHref" alt="@displayText" target="@target">@displayText</a></li>
         }
     </li>
 

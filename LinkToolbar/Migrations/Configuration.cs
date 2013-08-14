@@ -52,9 +52,9 @@ namespace LinkToolbar.Migrations
                         "http://earthquake.usgs.gov/monitoring/operations/heliplots_gsn.php", new List<Link>(),++linkId),
                     createLink("PNW Network Earthquakes", "http://www.pnsn.org/earthquakes/recent", new List<Link>(),++linkId)
                 },++linkId)
-            }, 2));
+            }, 1));
 
-            seeds.Add(createLink("-", "", new List<Link>(), ++linkId));
+            seeds.Add(createLink("-", "", new List<Link>(), 2));
 
             seeds.Add(
                 createLink("RESPONSE", "", new List<Link>
@@ -74,7 +74,7 @@ namespace LinkToolbar.Migrations
                             createLink("California", "http://www.calema.ca.gov/Pages/default.aspx", new List<Link>(),++linkId)
                         },++linkId)
                     },++linkId)
-                }, 2));
+                }, 3));
 
             return seeds;
         }

@@ -20,6 +20,8 @@ namespace LinkToolbar.Models
         public LinkTarget Target { get; set; }
         public string TargetHref { get; set; }
         public IList<Link> Links { get; set; }
+        [ForeignKey("Links")]
+        public int? ParentId { get; set; }
         public ToolbarVisibility Visibility { get; set; }
     }
 
